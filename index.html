@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шифрування та Дешифрування</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="top-buttons">
+      <button onclick="showEncryption()">Шифрування</button>
+      <button onclick="showDecryption()">Дешифрування</button>
+    </div>
+
+    <div id="encryption-section" class="container centered">
+      <h1>Шифрування</h1>
+      <label for="file-input">Виберіть файл (txt):</label>
+      <input type="file" id="file-input" accept=".txt" />
+      <input type="text" id="text" placeholder="Введіть текст" />
+      <input type="number" id="key" placeholder="Ключ (k)" />
+      <select id="cipher" onchange="showAffineInput()">
+        <option value="caesar">Шифр Цезаря</option>
+        <option value="linear">Лінійний шифр</option>
+        <option value="affine">Афінний шифр</option>
+      </select>
+      <input
+        type="number"
+        id="t-key"
+        placeholder="Ключ t"
+        style="display: none"
+      />
+      <button onclick="encrypt()">Шифрувати</button>
+      <div id="output"></div>
+      <a
+        id="download-link"
+        href="#"
+        style="display: none"
+        download="encrypted.txt"
+        >Завантажити файл</a
+      >
+    </div>
+
+    <div
+      id="decryption-section"
+      class="container centered"
+      style="display: none"
+    >
+      <h1>Дешифрування</h1>
+      <label for="file-input-dec">Виберіть файл (txt):</label>
+      <input type="file" id="file-input-dec" accept=".txt" />
+      <input
+        type="text"
+        id="text-dec"
+        placeholder="Введіть зашифрований текст"
+      />
+      <input type="number" id="key-dec" placeholder="Ключ (k)" />
+      <select id="cipher-dec" onchange="showAffineInputDec()">
+        <option value="caesar">Шифр Цезаря</option>
+        <option value="linear">Лінійний шифр</option>
+        <option value="affine">Афінний шифр</option>
+      </select>
+      <input
+        type="number"
+        id="t-key-dec"
+        placeholder="Ключ t"
+        style="display: none"
+      />
+      <button onclick="decrypt()">Дешифрувати</button>
+      <div id="output-dec"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
